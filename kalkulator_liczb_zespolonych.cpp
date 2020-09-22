@@ -37,18 +37,26 @@ public:
             real = P2.real;
             imaginary = P2.imaginary;
         }
+
+    return *this;
     }
 
-    Complex operator+(Complex B)
+    Complex operator+(Complex const & B)
     {
         return Complex (real + B.real, imaginary + B.imaginary);
     }
 
 
-    Complex operator-(Complex B)
+    Complex operator-(Complex const & B)
     {
 
         return Complex (real - B.real, imaginary - B.imaginary);
+    }
+
+    Complex operator*(Complex const & B)
+    {
+
+        return Complex (real * B.real, imaginary * B.imaginary);
     }
 
     /*float get_real()
@@ -100,6 +108,16 @@ int main()
 	cout << " - ";
 	z.print();
 	cout << endl;
+
+	x = y * z;
+	cout << "\n\nx = y * z:" << endl;
+	x.print();
+	cout << " = ";
+	y.print();
+	cout << " * ";
+	z.print();
+	cout << endl;
+
 
 	return 0;
 }
